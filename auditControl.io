@@ -23,12 +23,12 @@ Table audit_app_task {
 Table audit_batch_log {
   batch_id integer [primary key]
   application_id integer [primary key]
-  batch_start_time datetime
-  batch_end_time datetime
+  batch_start_time timestamp
+  batch_end_time timestamp
   status varchar
   created_date date
   created_by varchar
-  last_upd_time datetime
+  last_upd_time timestamp
   last_upd_by varchar
 }
 
@@ -36,12 +36,12 @@ Table audit_batch_control {
   batch_id integer [primary key]
   application_id integer [primary key]
   task_id integer [primary key]
-  task_start_time datetime
-  task_end_time datetime
+  task_start_time timestamp
+  task_end_time timestamp
   status varchar
   source_record_count integer
   target_record_count integer
-  created_time datetime
+  created_time timestamp
   created_by varchar
 }
 
