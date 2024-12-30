@@ -55,7 +55,7 @@ ALTER TABLE "audit_batch_control" ADD FOREIGN KEY ("batch_id", "application_id")
 
 ALTER TABLE "audit_batch_control" ADD FOREIGN KEY ("application_id", "task_id") REFERENCES "audit_app_task" ("application_id", "task_id");
 
-INSERT INTO audit_application VALUES (101, 'SAMPLE ETL', 'sample etl process', 'A', current_date, current_user);
+INSERT INTO audit_application VALUES (101, 'SAMPLE_ETL', 'sample etl process', 'A', current_date, current_user);
 
 INSERT INTO audit_app_task VALUES (101, 1, 'initialize batch', 'start of SAMPLE ETL', 'A', current_date, current_user);
 INSERT INTO audit_app_task VALUES (101, 2, 'proc_data_pull', 'collect data for SAMPLE ETL', 'A', current_date, current_user);
