@@ -58,10 +58,10 @@ ALTER TABLE "audit_batch_control" ADD FOREIGN KEY ("application_id", "task_id") 
 INSERT INTO audit_application VALUES (101, 'SAMPLE ETL', 'sample etl process', 'A', current_date, current_user);
 
 INSERT INTO audit_app_task VALUES (101, 1, 'initialize batch', 'start of SAMPLE ETL', 'A', current_date, current_user);
-INSERT INTO audit_app_task VALUES (101, 2, 'data acquisition', 'collect data for SAMPLE ETL', 'A', current_date, current_user);
-INSERT INTO audit_app_task VALUES (101, 3, 'build DIMENSION TABLE 1', 'build DIM 1 for SAMPLE ETL', 'A', current_date, current_user);
-INSERT INTO audit_app_task VALUES (101, 4, 'build DIMENSION TABLE 2', 'build DIM 2 for SAMPLE ETL', 'A', current_date, current_user);
-INSERT INTO audit_app_task VALUES (101, 5, 'build FACT TABLE 1', 'build FACT 1 for SAMPLE ETL', 'A', current_date, current_user);
+INSERT INTO audit_app_task VALUES (101, 2, 'proc_data_pull', 'collect data for SAMPLE ETL', 'A', current_date, current_user);
+INSERT INTO audit_app_task VALUES (101, 3, 'proc_build_dim_1', 'build DIM 1 for SAMPLE ETL', 'A', current_date, current_user);
+INSERT INTO audit_app_task VALUES (101, 4, 'proc_build_dim_2', 'build DIM 2 for SAMPLE ETL', 'A', current_date, current_user);
+INSERT INTO audit_app_task VALUES (101, 5, 'proc_build_fact_1', 'build FACT 1 for SAMPLE ETL', 'A', current_date, current_user);
 
 SELECT * FROM audit_application;
 
