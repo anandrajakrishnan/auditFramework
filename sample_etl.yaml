@@ -1,0 +1,47 @@
+# feeder file to generate the DAG
+dag:
+  dag_id: SAMPLE_ETL
+  schedule_interval: '0 15 * * *'
+#
+task:
+  get_applicationid:
+    operator: PythonOperator
+    decorator: getappid
+    upstreamTask: null
+  initializebatch:
+    operator: PythonOperator
+    decorator: initbatch
+    upstreamTask:
+      - get_applicationid
+    task_id: 1
+  dataacquisition:
+    operator: PythonOperator
+    decorator: callproc
+    upstreamTask:
+      - initializebatch
+    task_id: 2
+  build_dimension1:
+    operator: PythonOperator
+    decorator: callproc
+    upstreamTask:
+      - dataacquisition
+    task_id: 3
+  build_dimension2:
+    operator: PythonOperator
+    decorator: callproc
+    upstreamTask:
+      - dataacquisition
+    task_id: 4
+  build_fact:
+    operator: PythonOperator
+    decorator: callproc
+    upstreamTask:
+      - build_dimension1
+      - build_dimension2
+    task_id: 5
+  close_batch:
+    operator: PythonOperator
+    decorator: closebatch
+    upstreamTask:
+      - build_fact
+    task_id: 6
