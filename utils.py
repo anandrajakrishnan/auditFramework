@@ -19,7 +19,8 @@ def getappid(application_name):
             returnJson['application_name']=application_name
             kwargs['returnJson']=returnJson
             return func(*args, **kwargs)
-        return decorator_getappid
+        return wrapper_getappid
+    return decorator_getappid
 #
 def initbatch(task_id):
     def decorator_initbatch(func):
